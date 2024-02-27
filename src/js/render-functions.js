@@ -1,7 +1,7 @@
 'use strict';
 
-import iziToast from 'izitoast';
-import "izitoast/dist/css/iziToast.min.css";
+// import iziToast from 'izitoast';
+// import "izitoast/dist/css/iziToast.min.css";
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -12,19 +12,6 @@ export function renderImages(images) {
 
    gallery.innerHTML = ''; // Очищуємо галерею перед відображенням нових зображень
   
-
-
-  if (images.length === 0 ) {
-    iziToast.error({
-      title: 'Error',
-      message: 'Sorry, there are no images matching your search query. Please try again!',
-    });
- 
-    return;
-    
-  }
-
-
     const lightbox = new SimpleLightbox('.gallery a'); // Ініціалізуємо SimpleLightbox для всіх посилань в галереї
 
     images.forEach((image) => {
