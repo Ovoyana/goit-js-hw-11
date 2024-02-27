@@ -20,4 +20,5 @@ export function searchImages(query) {
   
         return data.hits;
       });
+      
 }

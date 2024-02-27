@@ -5,16 +5,26 @@ import "izitoast/dist/css/iziToast.min.css";
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+
+
 export function renderImages(images) {
   const gallery = document.getElementById('gallery');
-  gallery.innerHTML = ''; // Очищуємо галерею перед відображенням нових зображень
 
-  if (images.length === 0) {
-    iziToast.info({
-      title: 'Info',
+   gallery.innerHTML = ''; // Очищуємо галерею перед відображенням нових зображень
+  
+
+
+  if (images.length === 0 ) {
+    iziToast.error({
+      title: 'Error',
       message: 'Sorry, there are no images matching your search query. Please try again!',
     });
-  } else {
+ 
+    return;
+    
+  }
+
+
     const lightbox = new SimpleLightbox('.gallery a'); // Ініціалізуємо SimpleLightbox для всіх посилань в галереї
 
     images.forEach((image) => {
@@ -57,8 +67,10 @@ export function renderImages(images) {
     });
 
     lightbox.refresh(); // Оновлюємо SimpleLightbox після додавання нових елементів
+  
+    
   }
-}
+ 
 
 export function showLoader() {
   const loader = document.getElementById('loader');
@@ -68,4 +80,7 @@ export function showLoader() {
 export function hideLoader() {
   const loader = document.getElementById('loader');
   loader.style.display = 'none';
+  
+
+  
 }
